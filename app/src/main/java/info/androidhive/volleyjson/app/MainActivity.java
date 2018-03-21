@@ -8,6 +8,7 @@ import org.json.JSONObject;
 
 import android.app.Activity;
 import android.app.ProgressDialog;
+import android.content.Intent;
 import android.os.Bundle;
 import android.text.method.ScrollingMovementMethod;
 import android.util.Log;
@@ -25,18 +26,13 @@ import com.android.volley.toolbox.JsonObjectRequest;
 
 public class MainActivity extends Activity {
 
-    // json object response url
-
-
     // json array response url
     private String urlJsonArry = "http://qiscusinterview.herokuapp.com/products";
 
     private static String TAG = MainActivity.class.getSimpleName();
-    private Button btnMakeObjectRequest, btnMakeArrayRequest;
-
+    private Button buttonTambah, btnMakeArrayRequest;
     // Progress dialog
     private ProgressDialog pDialog;
-
     private TextView txtResponse;
 
     // temporary string to show the parsed response
@@ -47,13 +43,20 @@ public class MainActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-
         btnMakeArrayRequest = (Button) findViewById(R.id.btnArrayRequest);
         txtResponse = (TextView) findViewById(R.id.txtResponse);
+        buttonTambah = (Button) findViewById(R.id.buttonTambah);
         pDialog = new ProgressDialog(this);
         pDialog.setMessage("Please wait...");
         pDialog.setCancelable(false);
 
+        buttonTambah.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(MainActivity.this, TambahData.class);
+                startActivity(i);
+            }
+        });
 
         btnMakeArrayRequest.setOnClickListener(new View.OnClickListener() {
 
@@ -65,10 +68,6 @@ public class MainActivity extends Activity {
         });
 
     }
-
-    /**
-     * Method to make json object request where json response starts wtih {
-     * */
 
     /**
      * Method to make json array request where response starts with [

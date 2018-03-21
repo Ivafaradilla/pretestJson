@@ -14,16 +14,19 @@
         android:paddingTop="@dimen/activity_vertical_margin"
         tools:context="info.androidhive.volleyjson.app.MainActivity"
         android:orientation="vertical">
+
         <Button
             android:id="@+id/btnArrayRequest"
-            android:layout_width="wrap_content"
+            android:layout_width="130dp"
             android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="50dp"
-            android:paddingLeft="15dp"
-            android:paddingRight="15dp"
             android:text="Lihat"
             />
+
+        <Button
+            android:layout_width="127dp"
+            android:layout_height="wrap_content"
+            android:text="Tambah Data"
+            android:id="@+id/buttonTambah" />
 
         <TextView
             android:id="@+id/txtResponse"
@@ -32,7 +35,9 @@
             android:layout_below="@id/btnArrayRequest"
             android:layout_marginTop="40px"
             android:padding="20dp"
-            android:scrollbars="vertical"/>
+            android:scrollbars="vertical"
+            android:textStyle="bold"
+            />
 </LinearLayout>
 
 </ScrollView>
